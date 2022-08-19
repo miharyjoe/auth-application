@@ -2,20 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, Container } from 'reactstrap';
 import IPageProps from '../interfaces/page';
+import "./home.css"
 
 const HomePage: React.FunctionComponent<IPageProps> = props => {
     return (
         <Container>
-            <Card>
+            <Card className="card">
                 <CardBody>
-                    <p>
-                        Welcome to this page that is protected by Friebase auth!
-                    </p>
+                    <h3>
+                        Welcome to this page by Friebase auth!
+                    </h3>
                     <p>
                         Change your password <Link to="/change">here</Link>.
                     </p>
                     <p>
-                        Click <Link to='/logout'>here</Link> to logout.
+                        <button className="custom-btn btn-16" >
+                            <Link to='/logout'>Logout</Link>
+                        </button>
                     </p>
                 </CardBody>
             </Card>

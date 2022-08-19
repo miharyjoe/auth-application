@@ -9,6 +9,7 @@ import IPageProps from '../../interfaces/page';
 import firebase from 'firebase';
 import { SignInWithSocialMedia } from './modules';
 
+
 const LoginPage: React.FunctionComponent<IPageProps> = props => {
     const [authenticating, setAuthenticating] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -95,6 +96,22 @@ const LoginPage: React.FunctionComponent<IPageProps> = props => {
                 style={{ backgroundColor:'#ea4335', borderColor: '#ea4335'}} 
             >
                 <i className="fab fa-google mr-2"></i> Sign in with Google
+            </Button>
+            <Button
+                block
+                disabled={authenticating}
+                onClick={() => signInWithSocialMedia(new firebase.auth.GithubAuthProvider())}
+                style={{ backgroundColor:'#171515', borderColor: '#171515'}}
+            >
+                <i className="fab fa-github mr-2"></i> Sign in with Github
+            </Button>
+            <Button
+                block
+                disabled={authenticating}
+                onClick={() => signInWithSocialMedia(new firebase.auth.FacebookAuthProvider())}
+                style={{ backgroundColor:'#3b5998', borderColor: '#3f5ba2'}}
+            >
+                <i className="fab fa-facebook mr-2"></i> Sign in with Facebook
             </Button>
         </AuthContainer>
     );
